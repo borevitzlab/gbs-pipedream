@@ -113,6 +113,39 @@ show you if you have a large problem with contamination. This is made difficult
 by the bacterial and mitochondrial genomes. And would only work at the kingdom
 level.
 
+A slightly related note would be the filtering of low complexity reads, i.e.
+reads with polymeric repeats (AAAAAA, ATATAT etc.). This is not too difficult
+from a compositional basis, one for example can filter low entropy reads out.
+
+
+Sample filtering
+================
+
+We would like a way of filtering out bad samples before any variant calling.
+Samples with too few reads, or with either to much contamination or low
+complexity reads.
+
+
+Variant Calling
+===============
+
+Nearly all of our GBS is *de novo*, so we need a reference-free method of
+assembling tags. This basically means a choice between ustacks and tassel's
+UNEAK. There are issues with both:
+
+### Uneak Issues:
+
+ - Limited to 64bp (well, only looks at 64bp)
+ - Limited to 1 SNV per 64bp locus
+ - Fairly monocot-specific filtering (developed for switchgrass by maize
+   people)
+ - Arcane hacks required to accept pre-demulitplexed or pre-qc'd files
+ - Doesn't output a proper VCF
+
+### Ustacks issues:
+
+ - Doesn't handle reads of varying lengths.
+ - Doesn't output a proper VCF or a list of **all** assembled tag pairs
 
 <!-- References -->
 

@@ -35,7 +35,7 @@ De-multiplexing
 
 Requirements:
 
-The following features are required:
+The following features are required in a demultiplexer for our GBS data:
 
 - Combinatorial barcodes
 - Barcodes of differing length

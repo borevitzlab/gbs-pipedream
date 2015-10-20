@@ -20,11 +20,12 @@ combinations using GBS-specific variant calling pipelines.
 These steps and the tools used are summarised in the following table, and
 detailed in the following sections.
 
-| Step                | Tool(s)     | Implementation Status             |
+| Step                | Tool(s)     | Implementation Status/Issues      |
 | ------------------- | ----------- | --------------------------------- |
 | De-multiplexing     | axe         | [Implemented][Axe], pre-publication |
 | Read QC             | gbsqc       | [Implemented][gbsqc], needs review |
 | *In-silico* gel cut | N/A         | Needs custom tool, ANU will implement |
+| Contamination Check | Various/New | Many tools available, few suit. See below |
 | Sample QC           | N/A         | Needs custom tool, ANU has ideas  |
 | Variant Calling     | stacks      | Has annoying limitations          |
 | Variant Calling     | TASSEL      | UNEAK deprecated                  |
@@ -92,6 +93,25 @@ fragment, and therefore select the size range of fragments computationally.
 This means that we can always assay the same size range, even across lanes with
 different actual size ranges.
 
+
+Contamination Check
+===================
+
+There may be many unintended things in your reads. Checking for contamination
+(any reads not from your species of interest) is worthwhile. However, many
+tools rely on either massive databases (often loaded in RAM), or blasting
+assembled contigs against massive databases (which we don't have at this
+point).
+
+This needs some thought. One possible option is to ignore contamination for now
+and blast the tags as assembled by e.g. stacks. Then, you can either, a), go
+all in and run Kraken or similar on the reads to remove contaminants, or b),
+just remove the loci that look like contaminants.
+
+On the other hand, things like quick GC plots or K-mer composition scores could
+show you if you have a large problem with contamination. This is made difficult
+by the bacterial and mitochondrial genomes. And would only work at the kingdom
+level.
 
 
 <!-- References -->

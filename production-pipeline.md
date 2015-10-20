@@ -63,7 +63,9 @@ Steps:
 - Measure read qualities *a la* FastQC
 - Trim/Merge: Merge reads from fragments between ~100bp and ~190bp (with 100bp
   reads) into a single read, trim adaptors from reads w/ fragment size &lt;
-  100bp. Uses a Needleman-Wunsch global alignment between the two reads.
+  100bp. Uses a Needleman-Wunsch global alignment between the two reads. (NB:
+  this requires paired end reads, and by our calculation, 100bp paired end is
+  optimal, though any reasonable length would work)
 - Windowed Quality Trimmer: very similar to
   [sickle](https://github.com/najoshi/sickle). Removes low base quality reads.
 - Measure read qualities *a la* FastQC post-QC for comparison.

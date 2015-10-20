@@ -77,11 +77,22 @@ both in terms of performance and simplicity.
 *In silico* gel cuts
 ====================
 
+This "tool" is throughly in air-quotes for now. The rationale and basic idea
+follows.
+
 The GBS protocol has a weakness in that the size of a fragment is tied to its
 location in the genome. Therefore, if the size range analyses is different
 between analyses you end up assaying different sub-sections of the genome. For
 *de novo* uses, this is a pretty bad thing. Fixing this *in vitro* is
-relatively difficult when there are many people making libraries
+relatively difficult when there are many people making libraries. So, an *in
+silico* method would be better.
+
+By merging read pairs into fragments, we can tell the exact length of the
+fragment, and therefore select the size range of fragments computationally.
+This means that we can always assay the same size range, even across lanes with
+different actual size ranges.
+
+
 
 <!-- References -->
 

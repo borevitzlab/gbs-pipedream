@@ -1,6 +1,8 @@
 The Production GBS Pipeline
 ===========================
 
+** NB: This is an internal draft. Don't quote this. **
+
 This describes a wish-list of features and planning of new or existing tools
 and pipelines. This isn't what we're currently using, as many steps are
 currently only ideas.
